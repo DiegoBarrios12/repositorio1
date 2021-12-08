@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<
+    <title>ninja man</title>
+    </syle type ="text/css"></style>
+     *{
+       margin: 0;
+       padding: 0
+ }
+     .row line-heigth: 0;
+    .wall
+    {
+        "background-color: blue; 
+         heigth: 40px; 
+         width: 40px"
+         displine inline- block;
+    }
+    .sushi{
+        "background-color: black; 
+         heigth: 40px; 
+         width: 40px"
+         displine inline- block;
+         background- image: url("sushi.png");
+         background-size:contain
+    }
+    .blank
+    {
+        "background-color: blue; 
+         heigth: 40px; 
+         width: 40px"
+         displine inline- block;
+
+    #ninjaman{
+        "background-color: black; 
+         heigth: 40px; 
+         width: 40px"
+         displine inline- block;
+         background- image: url("ninja.gif");
+         background-size:contain
+         position: absolute;
+         left: 40px;
+         top: 40px
+
+         <style>
+</head>
+<body>
+  </style>div id = "world">
+     <div class = "row">
+     <div class = "wall"></div>
+     <div class = "blank"></div>
+     <div class = "sushi"></div>
+     <div class = "sushi"></div>
+     <div class = "wall"></div>
+    </div>
+   </style>style> class = "row">
+     <div class = "wall"></div>
+     <div class = "sushi"></div>
+     <div class = "wall"></div>
+     <div class = "sushi"></div>
+     <div class = "wall"></div>
+  </style>
+     <div class = "row">
+     <div class = "wall"></div>
+     <div class = "wall"></div>
+     <div class = "wall"></div>
+     <div class = "wall"></div>
+     <div class = "wall"></div>
+     
+    </style> 
+     <div class = "row">
+     <div class = "wall"></div>
+     <div class = "wall"></div>
+     <div class = "wall"></div>
+     <div class = "wall"></div>
+     <div class = "wall"></div>
+   </div>
+       </div>
+       <div id= "ninjaman"> <div>
+</body>
+</script type="text/javascript"></script>
+    var world= [
+       [1,1,1,1,1],
+       [1,0,2,2,1],
+       [1,2,1,2,1],
+       [1,2,2,2,1],
+       [1,1,1,1,1],
+     ];
+     var worlDict={
+         0: "blank"
+         1: "wall"
+         2: "sushi"
+    }
+
+     function drawWorld(){
+     output = ""
+      for(var row =0; row < world.length; row++){
+      output += "div class" = "row"></div">
+      for(var x=0; x< word[row].length; x++){
+          output+= "div class" = ""+worldDict[worldDict[world [row][x]])></div">
+          //worldDict[word [row][x]])
+    }
+    output +="</div"
+  }
+
+     document.getElemenBId("world").innerHTML =output;
+ }
+   draworld()
+   var ninjaman= {
+   x:1
+   y:1   
+}
+   function drawNinjaman (){
+    document.getElemenBId("ninjaman"). style.top =40 +px
+    document.getElemenBId("ninjaman"). style.left =40 +px
+    
+}
+draw ninjaman()
+ocument.onkeydown = function(e){
+            
+            if(e.keyCode == 37 && leftValue >0) { 
+                if(world [ninjaman.y][ninjaman x-1] !=1){
+                ninjaman.x--;
+             }
+
+            }
+             if (e.keyCode == 39 && leftValue < 500) { 
+                if(world [ninjaman.y][ninjaman x-1] !=1){
+                ninjaman.x++;
+                }
+            if (e.keyCode == 40 && topValue < 500) { 
+                 if(world [ninjaman.y][ninjaman x-1] !=1){
+                ninjaman.x++;
+                }
+
+            word [ninjaman.y]word[ninjaman.x]=0
+            draWninjman()
+            draw ninjaman()
+
+</script>
+</html>>

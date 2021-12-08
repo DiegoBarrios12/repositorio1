@@ -1,0 +1,50 @@
+#contenedor{
+    width: 800px; background-color:gray;  height:500px
+}
+title{
+    width: 750px; 
+    background-color:green;
+    height:200px
+    display: block;
+    margin: 10px;
+    padding: 20px;
+    
+}
+#box-2{
+    width: 300px; 
+    background-color: blue;
+    height:20%
+    display: inline;
+    float: : left;
+}
+
+#box-3{
+    width: 150px; 
+    background-color: green;
+    height:200px
+    display: block;
+}
+#box-4{
+    width: 150px; 
+    background-color: green;
+    height:200px
+    display: block;
+}
+#box-5{
+    width: 150px; 
+    background-color: green;
+    height:200px
+    display: block;
+}
+#box-6{
+    width: 150px; 
+    background-color: green;
+    height:200px
+    display: block;
+}
+#box-7{
+    width: 150px; 
+    background-color: green;
+    height:200px
+    display: block;
+}

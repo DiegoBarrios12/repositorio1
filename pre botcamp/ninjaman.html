@@ -1,0 +1,222 @@
+
+   <html >
+< cabeza >
+           < título > NinjaMan </ título >
+           < style  type = " text / css " >
+           * {
+                      margen :  0 ;
+                      acolchado :  0 ;
+           }
+           . fila {
+                      altura de línea :  0 ;
+           }
+           . muro {
+                      color de fondo : azul;
+                      altura :  40 px ;
+                      ancho :  40 px ;
+                      pantalla : bloque en línea;
+           }
+           . sushi {
+                      color de fondo : negro;
+                      altura :  40 px ;
+                      ancho :  40 px ;
+                      pantalla : bloque en línea;
+                      imagen de fondo :  url ( 'sushi.png' );
+                      tamaño de fondo : contener;
+
+           }
+           . onigiri {
+                      color de fondo : negro;
+                      altura :  40 px ;
+                      ancho :  40 px ;
+                      pantalla : bloque en línea;
+                      imagen de fondo :  url ( 'onigiri.png' );
+                      tamaño de fondo : contener;
+
+           }
+           
+           . en blanco {
+                      color de fondo : negro;
+                      altura :  40 px ;
+                      ancho :  40 px ;
+                      pantalla : bloque en línea;
+           }
+           # enemigo {
+                      color de fondo : negro;
+                      altura :  40 px ;
+                      ancho :  40 px ;
+                      pantalla : bloque en línea;
+                      imagen de fondo :  url ( 'pumpky.gif' );
+                      tamaño de fondo : contener;
+                      posición : absoluta;
+                      izquierda :  40 px ;
+                      arriba :  40 px ;
+           }
+           # ninjaman {
+                      color de fondo : negro;
+                      altura :  40 px ;
+                      ancho :  40 px ;
+                      pantalla : bloque en línea;
+                      imagen de fondo :  url ( 'ninja.gif' );
+                      tamaño de fondo : contener;
+                      posición : absoluta;
+                      izquierda :  40 px ;
+                      arriba :  40 px ;
+           }
+           </ estilo >
+</ cabeza >
+< cuerpo >
+< div  id = ' mundo ' >
+          
+</ div >
+< div  id = ' ninjaman ' > </ div >
+< div  id = ' enemigo ' > </ div >
+< div > </ div >
+< div > </ div >
+< div > </ div >
+</ cuerpo >
+    < script  type = " text / javascript " >
+
+      función  aleatoria ( max , min ) {
+      devuelve  Math . piso ( Matemáticas . aleatorio ( ) *  ( máximo - mínimo  + 1 ) ) + mínimo ;
+      }
+
+      var  world  =  [
+      [ 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ] ,
+      [ 1 , 0 , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) ,aleatorio ( - 1 , 4 ) , 1 ] ,
+      [ 1 , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio (- 1 , 4 ) , aleatorio ( - 1 , 4 ) , 1 ] ,
+      [ 1 , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio (- 1 , 4 ) , aleatorio ( - 1 , 4 ) , 1 ] ,
+      [ 1 , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio (- 1 , 4 ) , aleatorio ( - 1 , 4 ) , 1 ] ,
+      [ 1 , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio (- 1 , 4 ) , aleatorio ( - 1 , 4 ) , 1 ] ,
+      [ 1 , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio (- 1 , 4 ) , 0 , 1 ] ,
+      [ 1 , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio (- 1 , 4 ) , aleatorio ( - 1 , 4 ) , 1 ] ,
+      [ 1 , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio ( - 1 , 4 ) , aleatorio (- 1 , 4 ) , aleatorio ( - 1 , 4 ) , 1 ] ,
+      [ 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ] ,
+
+
+      ] ;
+      var  worldDict  =  {
+        0 : 'en blanco' ,
+        1 : 'muro' ,
+        2 : 'sushi' ,
+        3 : 'onigiri' ,
+
+      }
+      var  puntuación  = 0 ;
+      consola . log ( "puntuación =" + puntuación ) ;
+
+      function  drawWorld ( ) {
+        var  salida  =  "" ;
+        para ( var  fila  =  0 ;  fila  < mundo . longitud ;  fila ++ ) {
+          salida  + =  "<div class = 'fila'>"
+          para ( var  x = 0 ;  x <  world [ fila ] . length ;  x ++ ) {
+            salida  + =  "<div class = '" + worldDict [ mundo [ fila ] [ x ] ]  + "'> </div>"
+            // worldDict [mundo [fila] [x]]
+          }
+          salida  + =  "</div>"
+        }
+
+        documento . getElementById ( 'mundo' ) . innerHTML  =  salida ;
+
+      }
+      drawWorld ( ) ;
+
+      var  ninjaman  =  {
+        x : 1 ,
+        y : 1 ,
+
+      }
+
+      function  drawNinjaman ( ) {
+        documento . getElementById ( 'ninjaman' ) . estilo . arriba  =  ninjaman . y * 40 + 'px'
+        documento . getElementById ( 'ninjaman' ) . estilo . izquierda  =  ninjaman . x * 40 + 'px'
+      }
+      drawNinjaman ( ) ;
+
+      var  enemigo  =  {
+        x : 8 ,
+        y : 6 ,
+      }
+
+      function  drawEnemy ( ) {
+        documento . getElementById ( 'enemigo' ) . estilo . arriba  =  enemigo . y * 40 + 'px'
+        documento . getElementById ( 'enemigo' ) . estilo . izquierda  =  enemigo . x * 40 + 'px'
+      }
+      drawEnemy ( ) ;
+
+      function  moveEnemy ( ) {
+        var  motor  =  aleatorio ( - 1 , 4 ) ;
+        if ( mover  === 0  &&  ( mundo [ enemigo . y ] [ enemigo . x - 1 ]  ! == 1 ) ) { // 0 = izquierda
+          enemigo . x - ;
+        } 
+        else  if ( mover  === 1  &&  ( mundo [ enemigo . y ] [ enemigo . x + 1 ]  ! == 1 ) ) { // 1 = derecha
+          enemigo . x ++ ;
+        }
+        else  if ( mover  === 2  &&  ( mundo [ enemigo . y - 1 ] [ enemigo . x ]  ! == 1 ) ) { // 2 = arriba
+        enemigo . y - ;
+        }
+        else  if ( mover  === 3  &&  ( mundo [ enemigo . y + 1 ] [ enemigo . x ]  ! == 1 ) ) { // 3 = abajo
+        enemigo . y ++ ;
+        }
+        }
+
+      var  vidas  =  3 ;
+      consola . log ( "vidas =" + vidas ) ;
+
+     
+
+      documento . onkeydown  =  function ( e ) {
+        if ( e . keyCode  ===  37 ) {  // izquierda
+          si ( mundo [ ninjaman . y ] [ ninjaman . x - 1 ]  ! == 1 ) {
+         Ninjaman . x - ;
+        }
+      }
+        if ( e . keyCode  ===  38 ) {  // arriba
+           si ( mundo [ ninjaman . y - 1 ] [ ninjaman . x ]  ! == 1 ) {
+         Ninjaman . y - ;
+        }
+       }
+        if ( e . keyCode  ===  39 ) {  // derecha
+          si ( mundo [ ninjaman . y ] [ ninjaman . x + 1 ]  ! == 1 ) {
+         Ninjaman . x ++ ;
+        }
+       }
+        if ( e . keyCode  ===  40 ) {  // abajo
+          si ( mundo [ ninjaman . y + 1 ] [ ninjaman . x ]  ! == 1 ) {
+         Ninjaman . y ++ ;
+        }
+      }
+      si ( mundo [ ninjaman . y ] [ ninjaman . x ]  ===  2 ) {
+        mundo [ ninjaman . y ] [ ninjaman . x ]  = 0 ;
+        puntuación + = 10 ;
+        consola . log ( "puntuación =" + puntuación ) ; }
+      else  if ( mundo [ ninjaman . y ] [ ninjaman . x ]  ===  3 ) {
+        mundo [ ninjaman . y ] [ ninjaman . x ]  = 0 ;
+        puntuación + = 5 ;
+        consola . log ( "puntuación =" + puntuación ) ;
+       }
+      if ( ( ninjaman . x  ===  enemigo . x )  &&  ( ninjaman . y  ===  enemigo . y ) ) {
+        vidas  - = 1 ;
+      consola . log ( "vidas =" + vidas )
+      }
+      si ( vive  === 0 ) {
+      documento . write ( "Game Over! </br> Your Score =" + puntuación )
+      }
+      dibujarNinjaman ( )
+      drawWorld ( )
+    }
+    function  gameLoop ( )  {
+      drawNinjaman ( ) ;
+      drawEnemy ( ) ;
+      moveEnemy ( ) ;
+      drawEnemy ( ) ;
+
+      setTimeout ( bucle de juego ,  750 )
+    }
+    gameLoop ( ) ;
+
+
+
+</ script >
+
+</ html >
